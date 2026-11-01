@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پلتفرم هوشمند آموزش زبان انگلیسی پایه نهم (Prospect 3 - چاپ ۱۴۰۵)</title>
+    <title>پلتفرم هوشمند، مدرن و فوق‌پیشرفته آموزش زبان انگلیسی پایه نهم (Prospect 3 - چاپ ۱۴۰۵)</title>
     <!-- RemixIcon for Modern UI Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Vazirmatn Font for Persian Typography -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <!-- Custom Advanced Stylesheet -->
+    <!-- Custom Cyberpunk & 3D Glassmorphic Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Cyberpunk Particle Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
 
     <div id="app-container">
         <!-- ================= Sidebar Navigation ================= -->
         <aside id="sidebar" class="glass-panel">
             <div class="brand-header">
                 <div class="brand-icon">
-                    <i class="ri-book-open-line"></i>
+                    <i class="ri-fire-line"></i>
                 </div>
                 <div class="brand-title">
-                    <h1>Prospect 3</h1>
-                    <span>پلتفرم هوشمند پایه نهم</span>
+                    <h1 style="font-size: 1.15rem; font-weight: 800;">Prospect 3</h1>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">نسخه هوشمند و سایبرپانک</span>
                 </div>
             </div>
 
@@ -33,15 +36,15 @@
                 </li>
                 <li class="nav-item" data-view="lessons">
                     <i class="ri-booklet-line"></i>
-                    <span>محتوای آموزشی ۶ درس</span>
+                    <span>محتوای جامع و درس‌نامه‌ها</span>
                 </li>
                 <li class="nav-item" data-view="flashcards">
                     <i class="ri-bank-card-line"></i>
-                    <span>فلش‌کارت سه‌بعدی لایتنر</span>
+                    <span>فلش‌کارت سه‌بعدی و صوت</span>
                 </li>
                 <li class="nav-item" data-view="grammar-verbs">
                     <i class="ri-award-line"></i>
-                    <span>افعال بی‌قاعده و نکات طلایی</span>
+                    <span>افعال بی‌قاعده و نکات امتحانی</span>
                 </li>
                 <li class="nav-item" data-view="quiz">
                     <i class="ri-questionnaire-line"></i>
@@ -58,14 +61,24 @@
         <main id="main-content">
             <!-- Top Header Bar -->
             <header id="top-bar" class="glass-panel" style="border-radius: 0; border: none; border-bottom: 1px solid var(--card-border);">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <button class="mobile-menu-toggle">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <button class="glass-btn mobile-menu-toggle" style="padding: 8px 12px;">
                         <i class="ri-menu-line"></i>
                     </button>
-                    <h2 style="font-size: 1.1rem; font-weight: 700; color: var(--primary);">سامانه پیشرفته یادگیری زبان انگلیسی نهم (چاپ ۱۴۰۵)</h2>
+                    <h2 style="font-size: 1.05rem; font-weight: 800; color: var(--primary);">پلتفرم جامع آموزش زبان انگلیسی نهم (چاپ ۱۴۰۵)</h2>
                 </div>
-                <div class="header-controls">
-                    <button class="theme-toggle" title="تغییر تم تاریک/روشن">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <!-- Gamification XP Badge -->
+                    <div class="gamification-bar">
+                        <div class="xp-badge">
+                            <i class="ri-flashlight-fill"></i>
+                            <span id="user-xp-display">0 XP</span>
+                        </div>
+                        <div class="level-progress-container">
+                            <div class="level-progress-bar" id="level-progress-bar"></div>
+                        </div>
+                    </div>
+                    <button class="theme-toggle glass-btn" style="padding: 10px; border-radius: 50%;" title="تغییر تم تاریک/روشن">
                         <i class="ri-moon-line"></i>
                     </button>
                 </div>
@@ -74,68 +87,80 @@
             <!-- Dynamic Views Container -->
             <div id="view-container">
 
-                <!-- View 1: Study Map & Guide -->
+                <!-- View 1: Study Map & Analytics Dashboard -->
                 <section id="view-study-map" class="view-section active-view">
-                    <div class="glass-panel" style="padding: 24px; margin-bottom: 24px;">
+                    <!-- 3D Analytics Dashboard Area -->
+                    <div id="analytics-dashboard-area"></div>
+
+                    <div class="glass-panel" style="padding: 28px; margin-bottom: 24px;">
                         <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.3rem;">🗺️ راهنمای مطالعه و برنامه مرور ۷ روزه</h3>
-                        <p style="margin-bottom: 16px; color: var(--text-muted); line-height: 1.7;">این جزوه یک منبع آموزشی تألیفی و مکمل کتاب درسی است. روش پیشنهادی: ابتدا واژگان را بلند بخوانید، مثال‌ها را مرور کنید، قواعد را تمرین کنید و تمرین‌ها را حل نمایید[span_0](start_span)[span_0](end_span).</p>
+                        <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.7;">این جزوه یک منبع آموزشی تألیفی و مکمل کتاب درسی است. روش پیشنهادی: ابتدا واژگان را با صدای بلند بخوانید، مثال‌ها را مرور کنید، قواعد را تمرین کنید و تمرین‌ها را حل نمایید[span_0](start_span)[span_0](end_span).</p>
                         <div id="study-plan-container"></div>
                     </div>
                 </section>
 
-                <!-- View 2: Lessons Content Overview -->
+                <!-- View 2: Lessons Content & Supplementary Notes -->
                 <section id="view-lessons" class="view-section">
-                    <div class="glass-panel" style="padding: 24px; margin-bottom: 24px;">
-                        <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.3rem;">📚 محتوای جامع ۶ درس کتاب Prospect 3</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 20px;">پوشش کامل واژگان، تلفظ، نقش دستوری، مثال‌ها و متن ترجمه شده دروس.</p>
+                    <div class="glass-panel" style="padding: 28px; margin-bottom: 24px;">
+                        <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.3rem;">📚 محتوای جامع ۶ درس و درس‌نامه‌های تکمیلی</h3>
+                        <p style="color: var(--text-muted);">پوشش مو‌به‌مو و ۱۰۰٪ کامل واژگان، تلفظ، نکات گرامری کتاب اصلی و ترجمه روان.</p>
                     </div>
                     <div id="lessons-content-area"></div>
                 </section>
 
-                <!-- View 3: 3D Flashcards Leitner -->
+                <!-- View 3: 3D Flashcards Leitner & Waveform -->
                 <section id="view-flashcards" class="view-section">
-                    <div class="glass-panel" style="padding: 24px; text-align: center; margin-bottom: 20px;">
-                        <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.3rem;">🔄 فلش‌کارت سه‌بعدی لایتنر</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 16px;">برای چرخش کارت و دیدن معنی روی آن کلیک کنید.</p>
+                    <div class="glass-panel" style="padding: 32px; text-align: center; margin-bottom: 24px;">
+                        <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.4rem;">🔄 فلش‌کارت سه‌بعدی لایتنر و موتور صوتی</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">برای چرخش کارت روی آن کلیک کنید. با دکمه تلفظ، صدا با اکولایزر موجی پخش می‌شود.</p>
                         
-                        <div style="max-width: 300px; margin: 0 auto 20px auto;">
-                            <select id="flashcard-lesson-select" class="form-control"></select>
+                        <div style="max-width: 320px; margin: 0 auto 20px auto;">
+                            <select id="flashcard-lesson-select" class="form-control" style="background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); padding: 12px; border-radius: var(--radius-md); font-weight: 600;"></select>
                         </div>
 
                         <!-- 3D Flashcard Component -->
                         <div class="flashcard-wrapper">
                             <div class="flashcard" id="main-flashcard">
                                 <div class="card-face card-front">
-                                    <div style="display: flex; justify-content: space-between; width: 100%;">
+                                    <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
                                         <span class="badge badge-pos" id="fc-pos">pos</span>
-                                        <button id="audio-pronounce-btn" class="glass-btn" style="padding: 6px 12px; font-size: 0.85rem;"><i class="ri-volume-up-line"></i> تلفظ</button>
+                                        <div style="display: flex; align-items: center; gap: 8px;">
+                                            <div class="waveform-equalizer" id="audio-equalizer" title="موج صوتی">
+                                                <div class="waveform-bar"></div>
+                                                <div class="waveform-bar"></div>
+                                                <div class="waveform-bar"></div>
+                                                <div class="waveform-bar"></div>
+                                                <div class="waveform-bar"></div>
+                                            </div>
+                                            <button id="audio-pronounce-btn" class="glass-btn" style="padding: 6px 14px; font-size: 0.85rem;"><i class="ri-volume-up-line"></i> تلفظ</button>
+                                        </div>
                                     </div>
                                     <div>
                                         <div class="word-title" id="fc-word">Word</div>
                                         <div class="word-phonetic" id="fc-phonetic">/phonetic/</div>
                                     </div>
-                                    <div style="font-size: 0.85rem; color: var(--text-muted);">برای دیدن معنی کلیک کنید 👆</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">برای دیدن معنی روی کارت کلیک کنید 👆</div>
                                 </div>
                                 <div class="card-face card-back">
-                                    <span class="badge badge-pos">معنی و مثال</span>
+                                    <span class="badge badge-pos">معنی و مثال کاربردی</span>
                                     <div class="word-meaning" id="fc-meaning">معنی کلمه</div>
-                                    <div class="word-details" id="fc-example" style="direction: ltr; background: rgba(0,0,0,0.03); padding: 10px; border-radius: 8px; width: 100%;">مثال کاربردی</div>
+                                    <div class="word-details" id="fc-example" style="direction: ltr; background: rgba(0,0,0,0.04); padding: 12px; border-radius: 10px; width: 100%; font-weight: 500;">مثال کاربردی</div>
                                     <div style="font-size: 0.85rem; color: var(--text-muted);">برای بازگشت کلیک کنید 🔄</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 20px;">
+                        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 24px;">
                             <button class="glass-btn" id="prev-card-btn"><i class="ri-arrow-right-line"></i> کلمه قبلی</button>
-                            <button class="glass-btn" id="next-card-btn">کلمه بعدی <i class="ri-arrow-left-line"></i></button>
+                            <button class="glass-btn" id="next-card-btn">کلمه بعدی (+2 XP) <i class="ri-arrow-left-line"></i></button>
                         </div>
                     </div>
                 </section>
 
-                <!-- View 4: Grammar, Irregular Verbs & Exam Tips -->
+                <!-- View 4: Irregular Verbs & Exam Tips -->
                 <section id="view-grammar-verbs" class="view-section">
-                    <div class="glass-panel" style="padding: 24px; margin-bottom: 24px;">
-                        <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.3rem;">⚡ مرجع کامل افعال بی‌قاعده</h3>
+                    <div class="glass-panel" style="padding: 28px; margin-bottom: 24px;">
+                        <h3 style="color: var(--primary); margin-bottom: 16px; font-size: 1.3rem;">⚡ مرجع کامل افعال بی‌قاعده</h3>
                         <div class="custom-table-container">
                             <table class="custom-table">
                                 <thead>
@@ -151,23 +176,23 @@
                         </div>
                     </div>
 
-                    <div class="glass-panel" style="padding: 24px;">
+                    <div class="glass-panel" style="padding: 28px;">
                         <h3 style="color: var(--accent); margin-bottom: 16px; font-size: 1.3rem;">⭐ نکات طلایی امتحان</h3>
                         <div id="exam-tips-container"></div>
                     </div>
                 </section>
 
-                <!-- View 5: Comprehensive Quiz -->
+                <!-- View 5: Comprehensive Quiz & Confetti -->
                 <section id="view-quiz" class="view-section">
-                    <div class="glass-panel" style="padding: 24px; margin-bottom: 20px;">
-                        <h3 style="color: var(--primary); margin-bottom: 8px; font-size: 1.3rem;">📝 آزمون جامع ۲۸ سوالی تألیفی</h3>
-                        <p style="color: var(--text-muted);">دانش خود را در بخش‌های واژگان، گرامر و ترجمه ارزیابی کنید و پاسخ‌نامه تشریحی را دریافت نمایید.</p>
+                    <div class="glass-panel" style="padding: 28px; margin-bottom: 24px;">
+                        <h3 style="color: var(--primary); margin-bottom: 8px; font-size: 1.3rem;">📝 آزمون جامع ۲۸ سوالی تألیفی (با پاداش XP)</h3>
+                        <p style="color: var(--text-muted);">دانش خود را در واژگان، گرامر و ترجمه بسنجید و با کسب نمره بالا انیمیشن آتش‌بازی را فعال کنید.</p>
                     </div>
                     
                     <div id="quiz-questions-container"></div>
                     
-                    <div style="text-align: center; margin: 30px 0;">
-                        <button class="glass-btn" id="submit-quiz-btn" style="padding: 14px 32px; font-size: 1.1rem;"><i class="ri-checkbox-circle-line"></i> ثبت و تصحیح آزمون</button>
+                    <div style="text-align: center; margin: 32px 0;">
+                        <button class="glass-btn" id="submit-quiz-btn" style="padding: 16px 36px; font-size: 1.15rem;"><i class="ri-checkbox-circle-line"></i> ثبت و تصحیح آزمون و دریافت امتیاز</button>
                     </div>
                     
                     <div id="quiz-result-container"></div>
@@ -175,41 +200,41 @@
 
                 <!-- View 6: Admin Dashboard -->
                 <section id="view-admin" class="view-section">
-                    <div class="glass-panel" style="padding: 24px; margin-bottom: 24px;">
-                        <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.3rem;">⚙️ پنل مدیریت و ویرایش دیتابیس</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 20px;">از این بخش می‌توانید واژگان جدید به هر درس اضافه کنید. تغییرات به‌صورت دائمی در حافظه مرورگر (`localStorage`) ذخیره خواهند شد.</p>
+                    <div class="glass-panel" style="padding: 28px; margin-bottom: 24px;">
+                        <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 1.3rem;">⚙️ پنل مدیریت پیشرفته دیتابیس</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">واژگان جدید را به هر درس اضافه کنید. اطلاعات به‌طور امن و دائمی در حافظه مرورگر (`localStorage`) ذخیره می‌شوند.</p>
 
                         <form id="add-vocab-form">
-                            <div class="form-group">
-                                <label>انتخاب درس:</label>
-                                <select id="admin-lesson-select" class="form-control"></select>
+                            <div style="margin-bottom: 16px;">
+                                <label style="display: block; margin-bottom: 6px; font-weight: 700;">انتخاب درس:</label>
+                                <select id="admin-lesson-select" class="form-control" style="background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); padding: 12px; border-radius: var(--radius-md); width: 100%;"></select>
                             </div>
-                            <div class="form-group">
-                                <label>کلمه انگلیسی (Word):</label>
-                                <input type="text" id="admin-word" class="form-control" required style="direction: ltr;">
+                            <div style="margin-bottom: 16px;">
+                                <label style="display: block; margin-bottom: 6px; font-weight: 700;">کلمه انگلیسی (Word):</label>
+                                <input type="text" id="admin-word" class="form-control" required style="background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); padding: 12px; border-radius: var(--radius-md); width: 100%; direction: ltr;">
                             </div>
-                            <div class="form-group">
-                                <label>تلفظ (Phonetic):</label>
-                                <input type="text" id="admin-phonetic" class="form-control" placeholder="/.../" style="direction: ltr;">
+                            <div style="margin-bottom: 16px;">
+                                <label style="display: block; margin-bottom: 6px; font-weight: 700;">تلفظ (Phonetic):</label>
+                                <input type="text" id="admin-phonetic" class="form-control" placeholder="/.../" style="background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); padding: 12px; border-radius: var(--radius-md); width: 100%; direction: ltr;">
                             </div>
-                            <div class="form-group">
-                                <label>نقش دستوری (POS - مثال: n, v, adj):</label>
-                                <input type="text" id="admin-pos" class="form-control" style="direction: ltr;">
+                            <div style="margin-bottom: 16px;">
+                                <label style="display: block; margin-bottom: 6px; font-weight: 700;">نقش دستوری (POS - مثال: n, v, adj):</label>
+                                <input type="text" id="admin-pos" class="form-control" style="background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); padding: 12px; border-radius: var(--radius-md); width: 100%; direction: ltr;">
                             </div>
-                            <div class="form-group">
-                                <label>معنی فارسی:</label>
-                                <input type="text" id="admin-meaning" class="form-control" required>
+                            <div style="margin-bottom: 16px;">
+                                <label style="display: block; margin-bottom: 6px; font-weight: 700;">معنی فارسی:</label>
+                                <input type="text" id="admin-meaning" class="form-control" required style="background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); padding: 12px; border-radius: var(--radius-md); width: 100%;">
                             </div>
-                            <div class="form-group">
-                                <label>مثال کاربردی (Example):</label>
-                                <input type="text" id="admin-example" class="form-control" style="direction: ltr;">
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 6px; font-weight: 700;">مثال کاربردی (Example):</label>
+                                <input type="text" id="admin-example" class="form-control" style="background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); padding: 12px; border-radius: var(--radius-md); width: 100%; direction: ltr;">
                             </div>
                             <button type="submit" class="glass-btn"><i class="ri-add-line"></i> افزودن واژه به دیتابیس</button>
                         </form>
 
-                        <div style="margin-top: 30px; border-top: 1px solid var(--card-border); padding-top: 20px;">
+                        <div style="margin-top: 32px; border-top: 1px solid var(--card-border); padding-top: 24px;">
                             <h4 style="color: var(--danger); margin-bottom: 10px;">منطقه خطر (بازنشانی داده‌ها)</h4>
-                            <button class="glass-btn" id="reset-db-btn" style="background: rgba(239, 68, 68, 0.15); border-color: var(--danger); color: var(--danger);"><i class="ri-refresh-line"></i> بازنشانی دیتابیس به حالت اولیه</button>
+                            <button class="glass-btn" id="reset-db-btn" style="background: rgba(239, 68, 68, 0.15); border-color: var(--danger); color: var(--danger); box-shadow: 0 8px 20px var(--danger-glow);"><i class="ri-refresh-line"></i> بازنشانی کامل دیتابیس به حالت اولیه</button>
                         </div>
                     </div>
                 </section>
@@ -218,7 +243,7 @@
         </main>
     </div>
 
-    <!-- Core JavaScript Application Logic -->
+    <!-- Core Cyberpunk Application Script -->
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "پلتفرم هوشمند آموزش زبان انگلیسی پایه نهم - Prospect 3",
-    "edition": "چاپ ۱۴۰۵ - نسخه جامع و پیشرفته (همراه با درس‌نامه‌های تکمیلی)",
+    "title": "پلتفرم هوشمند و فوق‌پیشرفته آموزش زبان انگلیسی پایه نهم - Prospect 3",
+    "edition": "چاپ ۱۴۰۵ - نسخه سطح یک جهانی (Cyberpunk Edition)",
     "lessonsCount": 6
   },
   "lessons": [
@@ -13,7 +13,7 @@
       "grammarFocus": "فعل be در زمان حال ساده (am / is / are) و تفاوت پرسش شخصیت و ظاهر",
       "supplementaryNotes": [
         "برای پرسیدن درباره شخصیت از ساختار What + be + subject + like استفاده می‌شود (مثال: What is your teacher like?).",
-        "برای پرسیدن درباره ظاهر فیزیکی از look like استفاده می‌شود (مثال: What does your friend look like?)."
+        "برای پرسیدن درباره ظاهر فیزیکی فرد از look like استفاده می‌شود (مثال: What does your friend look like?)."
       ],
       "vocabulary": [
         { "word": "shy", "phonetic": "/ʃaɪ/", "pos": "adj", "meaning": "خجالتی", "example": "My brother is shy." },
@@ -40,10 +40,10 @@
       "title": "Lesson 2: Travel",
       "persianTitle": "سفر",
       "target": "صحبت درباره سفر و کارهایی که همین حالا در جریان‌اند",
-      "grammarFocus": "حال استمراری و مالکیت با 's و of",
+      "grammarFocus": "زمان حال استمراری و مالکیت با 's و of",
       "supplementaryNotes": [
-        "مالکیت با ('s) برای جان‌داران و ('of) برای اشیا و ترکیب‌های جزء و کل استفاده می‌شود.",
-        "در حال استمراری، اگر فعلی به حرف بی‌صدا ختم شود که قبل از آن یک حرف صدادار باشد، حرف آخر دوبرابر می‌شود (مثل sit به sitting)."
+        "مالکیت با ('s) برای انسان‌ها و حیوانات و (of) برای اشیا و رابطه جزء و کل استفاده می‌شود.",
+        "در الگوی یک‌هجایی همخوان-مصوت-همخوان، هنگام افزودن ing حرف پایانی دوبرابر می‌شود (مثال: sit -> sitting)."
       ],
       "vocabulary": [
         { "word": "travel", "phonetic": "/ˈtrævl/", "pos": "v/n", "meaning": "سفر کردن، سفر", "example": "We travel in summer." },
@@ -73,7 +73,7 @@
       "target": "صحبت درباره عادت‌ها، جشن‌ها و کارهای همیشگی",
       "grammarFocus": "حال ساده با do/does و ضمایر ملکی",
       "supplementaryNotes": [
-        "صفات ملکی (my, your, his...) پیش از اسم می‌آیند اما ضمایر فاعلی (I, you, he...) جایگزین فاعل در ابتدای جمله می‌شوند."
+        "صفات ملکی (my, your, his, her, its, our, their) پیش از اسم می‌آیند، در حالی که ضمایر فاعلی جایگزین فاعل جمله‌اند."
       ],
       "vocabulary": [
         { "word": "festival", "phonetic": "/ˈfestɪvl/", "pos": "n", "meaning": "جشنواره، جشن", "example": "The city has a music festival." },
@@ -102,8 +102,8 @@
       "target": "صحبت درباره خدمات عمومی، شغل‌ها، ساعت کار و پرسیدن اطلاعات",
       "grammarFocus": "پرسش‌های WH و قیدهای تکرار",
       "supplementaryNotes": [
-        "قیدهای تکرار پیش از فعل اصلی و بعد از فعل be قرار می‌گیرند.",
-        "برای درخواست‌های مودبانه از عبارت Could you please استفاده می‌شود."
+        "قیدهای تکرار قبل از فعل اصلی و بعد از فعل be قرار می‌گیرند (مثال: I usually walk / She is always kind).",
+        "برای درخواست‌های مودبانه از عبارت Could you please... استفاده می‌شود."
       ],
       "vocabulary": [
         { "word": "service", "phonetic": "/ˈsɜːvɪs/", "pos": "n", "meaning": "خدمت، سرویس", "example": "The bank offers a useful service." },
@@ -132,8 +132,8 @@
       "target": "صحبت درباره رسانه و رویدادهای گذشته",
       "grammarFocus": "گذشته ساده افعال باقاعده و گذشته فعل be",
       "supplementaryNotes": [
-        "پسوند ed در گذشته ساده سه تلفظ متفاوت دارد: /t/، /d/ و /ɪd/.",
-        "با آمدن did یا didn't در جملات گذشته، فعل اصلی حتماً به شکل ساده تبدیل می‌شود."
+        "پسوند ed سه نوع تلفظ دارد: /t/ بعد از حروف بی‌صدا و محکم، /d/ بعد از حروف نرم و صدادار، /ɪd/ بعد از t و d.",
+        "با آمدن did یا didn't، فعل حتماً به شکل ساده برمی‌گردد."
       ],
       "vocabulary": [
         { "word": "media", "phonetic": "/ˈmiːdiə/", "pos": "n", "meaning": "رسانه‌ها", "example": "The media are important." },
@@ -162,8 +162,8 @@
       "target": "صحبت درباره سلامتی، حوادث و آسیب‌های گذشته",
       "grammarFocus": "گذشته ساده افعال بی‌قاعده و ضمایر مفعولی",
       "supplementaryNotes": [
-        "ضمایر مفعولی بعد از فعل یا حروف اضافه می‌آیند.",
-        "برای بیان درد در اندام‌ها از ساختار [Part] + hurts استفاده می‌شود."
+        "ضمایر مفعولی (me, you, him, her, it, us, them) بعد از فعل یا حروف اضافه می‌آیند.",
+        "برای بیان درد در اعضای بدن از ساختار [Part of body] + hurts استفاده می‌شود."
       ],
       "vocabulary": [
         { "word": "health", "phonetic": "/helθ/", "pos": "n", "meaning": "سلامتی", "example": "Health is important." },
@@ -229,10 +229,10 @@
     { "word": "wonderful", "type": "synonym", "target": "great", "meaning": "عالی / فوق‌العاده" }
   ],
   "examTips": [
-    "بعد از doesn't و does همیشه فعل به شکل ساده می‌آید (مثال: Does she work? نه Does she works).",
-    "بعد از didn't و did همیشه فعل به شکل ساده می‌آید (مثال: Did he go? نه Did he went).",
-    "در حال استمراری فعل کمکی be (am/is/are) را حذف نکنید (She is reading).",
-    "برای صفت‌ها از فعل be استفاده کنید (He is shy) و برای فعل اصلی در حال ساده از do/does کمکی بگیرید.",
+    "بعد از doesn't و does همیشه فعل به شکل ساده می‌آید (Does she work? نه Does she works).",
+    "بعد از didn't و did همیشه فعل به شکل ساده می‌آید (Did he go? نه Did he went).",
+    "در حال استمراری فعل کمکی be را حذف نکنید (She is reading).",
+    "برای صفت‌ها از be استفاده کنید (He is shy) و برای فعل اصلی در حال ساده از do/does کمکی بگیرید.",
     "در جمله پرسشی، فعل be یا فعل کمکی به ابتدای جمله می‌رود.",
     "جایگاه کلمات پرسشی WH همیشه در ابتدای جمله است (Where does he live).",
     "قیدهای تکرار معمولاً پیش از فعل اصلی و پس از فعل be قرار می‌گیرند.",
@@ -254,7 +254,7 @@
       "question": "معنی shy کدام است؟",
       "options": ["شجاع", "خجالتی", "صبور"],
       "answer": 1,
-      "explanation": "shy یعنی خجالتی[span_0](start_span)[span_0](end_span)."
+      "explanation": "shy یعنی خجالتی[span_20](start_span)[span_20](end_span)."
     },
     {
       "id": 2,
@@ -262,7 +262,7 @@
       "question": "معنی receptionist چیست؟",
       "options": ["پذیرشگر", "مسافر", "راننده"],
       "answer": 0,
-      "explanation": "receptionist یعنی پذیرشگر[span_1](start_span)[span_1](end_span)."
+      "explanation": "receptionist یعنی پذیرشگر[span_21](start_span)[span_21](end_span)."
     },
     {
       "id": 3,
@@ -270,7 +270,7 @@
       "question": "متضاد polite کدام است؟",
       "options": ["kind", "rude", "helpful"],
       "answer": 1,
-      "explanation": "متضاد polite کلمه rude (بی‌ادب) است[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span)."
+      "explanation": "متضاد polite کلمه rude (بی‌ادب) است[span_22](start_span)[span_22](end_span)[span_23](start_span)[span_23](end_span)."
     },
     {
       "id": 4,
@@ -278,7 +278,7 @@
       "question": "معنی fireworks چیست؟",
       "options": ["هدیه", "آتش‌بازی", "روزنامه"],
       "answer": 1,
-      "explanation": "fireworks یعنی آتش‌بازی[span_4](start_span)[span_4](end_span)."
+      "explanation": "fireworks یعنی آتش‌بازی[span_24](start_span)[span_24](end_span)."
     },
     {
       "id": 5,
@@ -286,7 +286,7 @@
       "question": "جای خالی را کامل کنید: The post office is a public ...",
       "options": ["service", "injury", "station"],
       "answer": 0,
-      "explanation": "اداره پست یک خدمت عمومی (public service) است[span_5](start_span)[span_5](end_span)."
+      "explanation": "اداره پست یک خدمت عمومی (public service) است[span_25](start_span)[span_25](end_span)."
     },
     {
       "id": 6,
@@ -294,7 +294,7 @@
       "question": "معنی online چیست؟",
       "options": ["آفلاین", "برخط", "سنتی"],
       "answer": 1,
-      "explanation": "online یعنی آنلاین یا برخط[span_6](start_span)[span_6](end_span)."
+      "explanation": "online یعنی آنلاین یا برخط[span_26](start_span)[span_26](end_span)."
     },
     {
       "id": 7,
@@ -302,7 +302,7 @@
       "question": "معنی accident چیست؟",
       "options": ["حادثه", "جشن", "سفر"],
       "answer": 0,
-      "explanation": "accident یعنی حادثه یا تصادف[span_7](start_span)[span_7](end_span)."
+      "explanation": "accident یعنی حادثه یا تصادف[span_27](start_span)[span_27](end_span)."
     },
     {
       "id": 8,
@@ -310,7 +310,7 @@
       "question": "متضاد sick کدام است؟",
       "options": ["healthy", "clever", "careful"],
       "answer": 0,
-      "explanation": "متضاد تقریبی sick کلمه healthy (سالم) است[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span)."
+      "explanation": "متضاد تقریبی sick کلمه healthy (سالم) است[span_28](start_span)[span_28](end_span)[span_29](start_span)[span_29](end_span)."
     },
     {
       "id": 9,
@@ -318,7 +318,7 @@
       "question": "جای خالی: My friends ... very kind.",
       "options": ["am", "is", "are"],
       "answer": 2,
-      "explanation": "چون friends جمع است، از are استفاده می‌شود[span_10](start_span)[span_10](end_span)."
+      "explanation": "چون friends جمع است، از are استفاده می‌شود[span_30](start_span)[span_30](end_span)."
     },
     {
       "id": 10,
@@ -326,7 +326,7 @@
       "question": "جمله را منفی کنید: She is lazy",
       "options": ["She isn't lazy", "She doesn't lazy", "She aren't lazy"],
       "answer": 0,
-      "explanation": "برای منفی کردن is از isn't استفاده می‌کنیم[span_11](start_span)[span_11](end_span)."
+      "explanation": "برای منفی کردن is از isn't استفاده می‌کنیم[span_31](start_span)[span_31](end_span)."
     },
     {
       "id": 11,
@@ -334,7 +334,7 @@
       "question": "سؤال بسازید: you / watching / TV / are",
       "options": ["Are you watching TV?", "Do you watching TV?", "Is you watching TV?"],
       "answer": 0,
-      "explanation": "فعل be به ابتدای جمله پرسشی می‌رود[span_12](start_span)[span_12](end_span)."
+      "explanation": "فعل be به ابتدای جمله پرسشی می‌رود[span_32](start_span)[span_32](end_span)."
     },
     {
       "id": 12,
@@ -342,7 +342,7 @@
       "question": "گزینه درست: Does he (travel / travels) every summer?",
       "options": ["travel", "travels"],
       "answer": 0,
-      "explanation": "بعد از does فعل به شکل ساده (travel) می‌آید[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)."
+      "explanation": "بعد از does فعل به شکل ساده (travel) می‌آید[span_33](start_span)[span_33](end_span)[span_34](start_span)[span_34](end_span)."
     },
     {
       "id": 13,
@@ -350,7 +350,7 @@
       "question": "جمله را منفی کنید: They visit their grandparents.",
       "options": ["They don't visit their grandparents.", "They aren't visit their grandparents.", "They doesn't visit their grandparents."],
       "answer": 0,
-      "explanation": "برای حال ساده با فاعل جمع از don't استفاده می‌شود[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span)."
+      "explanation": "برای حال ساده با فاعل جمع از don't استفاده می‌شود[span_35](start_span)[span_35](end_span)[span_36](start_span)[span_36](end_span)."
     },
     {
       "id": 14,
@@ -358,7 +358,7 @@
       "question": "جای خالی: What time ... the bank open?",
       "options": ["do", "does"],
       "answer": 1,
-      "explanation": "فاعل the bank مفرد (it) است، بنابراین از does استفاده می‌شود[span_17](start_span)[span_17](end_span)."
+      "explanation": "فاعل the bank مفرد (it) است، بنابراین از does استفاده می‌شود[span_37](start_span)[span_37](end_span)."
     },
     {
       "id": 15,
@@ -366,7 +366,7 @@
       "question": "فعل را به گذشته ببرید: We (watch) a film last night.",
       "options": ["watched", "watchs", "watching"],
       "answer": 0,
-      "explanation": "شکل گذشته باقاعده watch با افزودن ed به watched تبدیل می‌شود[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span)."
+      "explanation": "شکل گذشته باقاعده watch با افزودن ed به watched تبدیل می‌شود[span_38](start_span)[span_38](end_span)[span_39](start_span)[span_39](end_span)."
     },
     {
       "id": 16,
@@ -374,7 +374,7 @@
       "question": "گزینه درست: Did Sara (go / went) to school yesterday?",
       "options": ["go", "went"],
       "answer": 0,
-      "explanation": "بعد از did فعل به شکل ساده (go) می‌آید[span_20](start_span)[span_20](end_span)[span_21](start_span)[span_21](end_span)[span_22](start_span)[span_22](end_span)."
+      "explanation": "بعد از did فعل به شکل ساده (go) می‌آید[span_40](start_span)[span_40](end_span)[span_41](start_span)[span_41](end_span)[span_42](start_span)[span_42](end_span)."
     },
     {
       "id": 17,
@@ -382,7 +382,7 @@
       "question": "جای خالی: ... at home yesterday.",
       "options": ["was", "were"],
       "answer": 0,
-      "explanation": "فاعل I با was می‌آید[span_23](start_span)[span_23](end_span)[span_24](start_span)[span_24](end_span)."
+      "explanation": "فاعل I با was می‌آید[span_43](start_span)[span_43](end_span)[span_44](start_span)[span_44](end_span)."
     },
     {
       "id": 18,
@@ -390,7 +390,7 @@
       "question": "ضمیر مفعولی مناسب برای he کدام است؟ The teacher helped Reza. The teacher helped ...",
       "options": ["he", "him"],
       "answer": 1,
-      "explanation": "ضمیر مفعولی مناسب برای مذکر him است[span_25](start_span)[span_25](end_span)[span_26](start_span)[span_26](end_span)."
+      "explanation": "ضمیر مفعولی مناسب برای مذکر him است[span_45](start_span)[span_45](end_span)[span_46](start_span)[span_46](end_span)."
     },
     {
       "id": 19,
@@ -398,7 +398,7 @@
       "question": "شکل ing فعل write چیست؟",
       "options": ["writing", "writeing", "writting"],
       "answer": 0,
-      "explanation": "در فعل‌های ختم‌شده به e، حرف e حذف و ing اضافه می‌شود (writing)[span_27](start_span)[span_27](end_span)[span_28](start_span)[span_28](end_span)."
+      "explanation": "در فعل‌های ختم‌شده به e، حرف e حذف و ing اضافه می‌شود (writing)[span_47](start_span)[span_47](end_span)[span_48](start_span)[span_48](end_span)."
     },
     {
       "id": 20,
@@ -406,7 +406,7 @@
       "question": "جمله را پرسشی کنید: They were happy.",
       "options": ["Were they happy?", "Did they were happy?", "Are they happy?"],
       "answer": 0,
-      "explanation": "در پرسشی کردن فعل be در گذشته، were به پیش از فاعل می‌آید[span_29](start_span)[span_29](end_span)."
+      "explanation": "در پرسشی کردن فعل be در گذشته، were به پیش از فاعل می‌آید[span_49](start_span)[span_49](end_span)."
     },
     {
       "id": 21,
@@ -414,7 +414,7 @@
       "question": "ترجمه کنید: What is your friend like?",
       "options": ["شخصیت دوستت چگونه است؟", "دوستت چه شکلی است؟", "دوستت کجاست؟"],
       "answer": 0,
-      "explanation": "عبارت What ... like درباره ویژگی‌های اخلاقی و شخصیت پرسش می‌کند[span_30](start_span)[span_30](end_span)[span_31](start_span)[span_31](end_span)."
+      "explanation": "عبارت What ... like درباره ویژگی‌های اخلاقی و شخصیت پرسش می‌کند[span_50](start_span)[span_50](end_span)[span_51](start_span)[span_51](end_span)."
     },
     {
       "id": 22,
@@ -422,7 +422,7 @@
       "question": "ترجمه کنید: I'm filling out a form.",
       "options": ["من دارم یک فرم را پر می‌کنم.", "من یک فرم پر کردم.", "من فرم را گم کردم."],
       "answer": 0,
-      "explanation": "این جمله در زمان حال استمراری است[span_32](start_span)[span_32](end_span)[span_33](start_span)[span_33](end_span)."
+      "explanation": "این جمله در زمان حال استمراری است[span_52](start_span)[span_52](end_span)[span_53](start_span)[span_53](end_span)."
     },
     {
       "id": 23,
@@ -430,7 +430,7 @@
       "question": "ترجمه کنید: Does your family celebrate Nowruz?",
       "options": ["آیا خانواده‌ات نوروز را جشن می‌گیرد؟", "خانواده‌ات چه زمانی نوروز را جشن می‌گیرند؟", "آیا خانواده‌ات نوروز را دوست دارند؟"],
       "answer": 0,
-      "explanation": "پرسش در زمان حال ساده برای سوم شخص مفرد family است[span_34](start_span)[span_34](end_span)[span_35](start_span)[span_35](end_span)."
+      "explanation": "پرسش در زمان حال ساده برای سوم شخص مفرد family است[span_54](start_span)[span_54](end_span)[span_55](start_span)[span_55](end_span)."
     },
     {
       "id": 24,
@@ -438,7 +438,7 @@
       "question": "ترجمه کنید: The shop usually closes at nine.",
       "options": ["مغازه معمولاً ساعت نه بسته می‌شود.", "مغازه همیشه ساعت نه باز می‌شود.", "مغازه دیروز ساعت نه بسته شد."],
       "answer": 0,
-      "explanation": "closes به معنای بسته شدن است[span_36](start_span)[span_36](end_span)[span_37](start_span)[span_37](end_span)."
+      "explanation": "closes به معنای بسته شدن است[span_56](start_span)[span_56](end_span)[span_57](start_span)[span_57](end_span)."
     },
     {
       "id": 25,
@@ -446,7 +446,7 @@
       "question": "ترجمه کنید: We listened to the radio yesterday.",
       "options": ["ما دیروز به رادیو گوش دادیم.", "ما امروز به رادیو گوش می‌دهیم.", "ما دیروز رادیو خریدیم."],
       "answer": 0,
-      "explanation": "listen با ed گذشته شده است[span_38](start_span)[span_38](end_span)[span_39](start_span)[span_39](end_span)."
+      "explanation": "listen با ed گذشته شده است[span_58](start_span)[span_58](end_span)[span_59](start_span)[span_59](end_span)."
     },
     {
       "id": 26,
@@ -454,7 +454,7 @@
       "question": "ترجمه کنید: He hurt his ankle.",
       "options": ["او به مچ پایش آسیب زد.", "او مچ پایش را شست.", "او مچ پایش را دید."],
       "answer": 0,
-      "explanation": "hurt در اینجا به معنای آسیب زدن و درد داشتن است[span_40](start_span)[span_40](end_span)[span_41](start_span)[span_41](end_span)."
+      "explanation": "hurt در اینجا به معنای آسیب زدن و درد داشتن است[span_60](start_span)[span_60](end_span)[span_61](start_span)[span_61](end_span)."
     },
     {
       "id": 27,
@@ -462,7 +462,7 @@
       "question": "به انگلیسی بنویسید: من دیروز در خانه بودم.",
       "options": ["I was at home yesterday.", "I am at home yesterday.", "I were at home yesterday."],
       "answer": 0,
-      "explanation": "برای فاعل I در زمان گذشته از was استفاده می‌شود[span_42](start_span)[span_42](end_span)[span_43](start_span)[span_43](end_span)."
+      "explanation": "برای فاعل I در زمان گذشته از was استفاده می‌شود[span_62](start_span)[span_62](end_span)[span_63](start_span)[span_63](end_span)."
     },
     {
       "id": 28,
@@ -470,7 +470,7 @@
       "question": "به انگلیسی بنویسید: آیا آنها دیشب فیلم تماشا کردند؟",
       "options": ["Did they watch a movie last night?", "Do they watch a movie last night?", "Were they watch a movie last night?"],
       "answer": 0,
-      "explanation": "برای گذشته ساده سوالی از Did در ابتدا و فعل ساده استفاده می‌شود[span_44](start_span)[span_44](end_span)[span_45](start_span)[span_45](end_span)[span_46](start_span)[span_46](end_span)."
+      "explanation": "برای گذشته ساده سوالی از Did در ابتدا و فعل ساده استفاده می‌شود[span_64](start_span)[span_64](end_span)[span_65](start_span)[span_65](end_span)[span_66](start_span)[span_66](end_span)."
     }
   ]
 }

@@ -1,20 +1,19 @@
 /* ==========================================================================
-   Project: Prospect 3 - Ultimate Cyberpunk & Modern 3D English Platform
-   File: app.js (Super-App Advanced Logic & Gamification Engine)
+   Project: Prospect 3 - Next-Gen World-Class Cyberpunk & Glass 3D Platform
+   File: app.js (Core Application Logic, Gamification & Audio Engine)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     // Application State
     let appData = null;
-    let currentLessonId = 1;
     let currentFlashcardIndex = 0;
     let quizUserAnswers = {};
     let userXP = parseInt(localStorage.getItem('prospect3_xp')) || 0;
-    let isDarkMode = localStorage.getItem('theme') === 'dark';
+    let isDarkMode = localStorage.getItem('theme') !== 'light';
 
     // Initialize Theme
-    if (isDarkMode) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+    if (!isDarkMode) {
+        document.documentElement.setAttribute('data-theme', 'light');
     }
 
     // Load Data (from localStorage or default data.json structure fallback)
@@ -41,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setupNavigation();
         setupThemeToggle();
         updateGamificationUI();
+        renderAnalyticsDashboard();
         renderStudyPlan();
         renderLessonsOverview();
         renderFlashcardModule();
@@ -48,11 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
         renderExamTips();
         renderQuizModule();
         renderAdminPanel();
-        renderAnalyticsDashboard();
     }
 
     // --------------------------------------------------------------------------
-    // 1. Cyberpunk Particle Background Engine
+    // 1. Cyberpunk Particle Background Canvas Engine
     // --------------------------------------------------------------------------
     function initParticleCanvas() {
         const canvas = document.getElementById('bg-canvas');
@@ -67,17 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
             height = canvas.height = window.innerHeight;
         });
 
-        const particles = Array.from({ length: 35 }, () => ({
+        const particles = Array.from({ length: 40 }, () => ({
             x: Math.random() * width,
             y: Math.random() * height,
             radius: Math.random() * 2 + 1,
-            speedX: (Math.random() - 0.5) * 0.5,
-            speedY: (Math.random() - 0.5) * 0.5
+            speedX: (Math.random() - 0.5) * 0.6,
+            speedY: (Math.random() - 0.5) * 0.6
         }));
 
         function animateParticles() {
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = isDarkMode ? 'rgba(99, 102, 241, 0.25)' : 'rgba(99, 102, 241, 0.15)';
+            ctx.fillStyle = isDarkMode ? 'rgba(99, 102, 241, 0.3)' : 'rgba(99, 102, 241, 0.15)';
             
             particles.forEach(p => {
                 p.x += p.speedX;
@@ -131,16 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
         themeBtn.addEventListener('click', () => {
             isDarkMode = !isDarkMode;
             if (isDarkMode) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeBtn.innerHTML = '<i class="ri-sun-line"></i>';
-            } else {
                 document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
+                localStorage.setItem('theme', 'dark');
                 themeBtn.innerHTML = '<i class="ri-moon-line"></i>';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeBtn.innerHTML = '<i class="ri-sun-line"></i>';
             }
         });
-        if (isDarkMode) {
+        if (!isDarkMode) {
             themeBtn.innerHTML = '<i class="ri-sun-line"></i>';
         }
     }
@@ -162,17 +161,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------------------------
-    // 3. Lessons & Supplementary Notes (Integration)
+    // 3. Analytics Dashboard 3D
+    // --------------------------------------------------------------------------
+    function renderAnalyticsDashboard() {
+        const container = document.getElementById('analytics-dashboard-area');
+        if (!container || !appData) return;
+
+        const totalVocab = appData.lessons.reduce((acc, l) => acc + l.vocabulary.length, 0);
+        const totalVerbs = appData.irregularVerbs.length;
+        const totalQuiz = appData.comprehensiveQuiz.length;
+
+        container.innerHTML = `
+            <div class="stats-grid">
+                <div class="glass-panel stat-card">
+                    <div class="stat-icon" style="background: var(--primary);"><i class="ri-book-2-line"></i></div>
+                    <div>
+                        <div style="font-size: 1.6rem; font-weight: 900;">${totalVocab}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);">واژه و اصطلاح تخصصی</div>
+                    </div>
+                </div>
+                <div class="glass-panel stat-card">
+                    <div class="stat-icon" style="background: var(--secondary);"><i class="ri-award-line"></i></div>
+                    <div>
+                        <div style="font-size: 1.6rem; font-weight: 900;">${totalVerbs}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);">فعل بی‌قاعده مرجع</div>
+                    </div>
+                </div>
+                <div class="glass-panel stat-card">
+                    <div class="stat-icon" style="background: var(--accent);"><i class="ri-question-answer-line"></i></div>
+                    <div>
+                        <div style="font-size: 1.6rem; font-weight: 900;">${totalQuiz}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);">سوال آزمون استاندارد</div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // --------------------------------------------------------------------------
+    // 4. Study Plan & Lessons Overview (with Supplementary Notes)
     // --------------------------------------------------------------------------
     function renderStudyPlan() {
         const container = document.getElementById('study-plan-container');
         if (!container || !appData.studyPlan) return;
         
         container.innerHTML = appData.studyPlan.map(item => `
-            <div class="glass-panel" style="padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <div class="glass-panel" style="padding: 18px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                    <h4 style="color: var(--primary); font-weight: 700; margin-bottom: 4px;">${item.day}</h4>
-                    <p style="font-size: 0.95rem;">${item.topic}</p>
+                    <h4 style="color: var(--primary); font-weight: 800; margin-bottom: 4px;">${item.day}</h4>
+                    <p style="font-size: 0.95rem; font-weight: 500;">${item.topic}</p>
                 </div>
                 <span class="badge badge-pos">برنامه مرور</span>
             </div>
@@ -184,48 +221,48 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!container || !appData.lessons) return;
 
         container.innerHTML = appData.lessons.map(lesson => `
-            <div class="glass-panel" style="padding: 24px; margin-bottom: 24px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                    <h3 style="color: var(--primary); font-size: 1.2rem;">${lesson.title} - ${lesson.persianTitle}</h3>
+            <div class="glass-panel" style="padding: 28px; margin-bottom: 28px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                    <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 900;">${lesson.title} - ${lesson.persianTitle}</h3>
                     <span class="badge badge-pos">هدف: ${lesson.target}</span>
                 </div>
-                <p style="margin-bottom: 8px; font-weight: 600; color: var(--secondary);">قاعده محوری: ${lesson.grammarFocus}</p>
+                <p style="margin-bottom: 12px; font-weight: 700; color: var(--secondary);">قاعده محوری: ${lesson.grammarFocus}</p>
                 
                 ${lesson.supplementaryNotes ? `
-                    <div style="margin: 12px 0; padding: 12px; background: rgba(245, 158, 11, 0.1); border-right: 4px solid var(--accent); border-radius: var(--radius-md);">
-                        <h5 style="color: var(--accent); margin-bottom: 6px;">💡 درس‌نامه و نکات تکمیلی کتاب اصلی:</h5>
-                        <ul style="padding-right: 20px; font-size: 0.9rem; line-height: 1.6;">
+                    <div style="margin: 16px 0; padding: 16px; background: rgba(245, 158, 11, 0.1); border-right: 4px solid var(--accent); border-radius: var(--radius-md);">
+                        <h5 style="color: var(--accent); margin-bottom: 8px; font-weight: 800;">💡 درس‌نامه و نکات تکمیلی کتاب اصلی:</h5>
+                        <ul style="padding-right: 20px; font-size: 0.95rem; line-height: 1.7; font-weight: 500;">
                             ${lesson.supplementaryNotes.map(note => `<li>${note}</li>`).join('')}
                         </ul>
                     </div>
                 ` : ''}
 
-                <h4 style="margin: 16px 0 8px 0; font-size: 1rem;">واژگان کلیدی:</h4>
+                <h4 style="margin: 20px 0 10px 0; font-size: 1.05rem; font-weight: 800;">واژگان کلیدی:</h4>
                 <div class="grid-container">
                     ${lesson.vocabulary.map(v => `
-                        <div class="glass-panel vocab-card" style="padding: 16px;">
-                            <div class="vocab-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                <span style="font-weight: 700; direction: ltr; color: var(--primary);">${v.word}</span>
+                        <div class="vocab-card">
+                            <div class="vocab-header">
+                                <span style="font-weight: 800; direction: ltr; color: var(--primary); font-size: 1.1rem;">${v.word}</span>
                                 <span class="badge badge-pos">${v.pos}</span>
                             </div>
-                            <div style="font-size: 0.85rem; color: var(--text-muted); direction: ltr; margin-bottom: 4px;">${v.phonetic}</div>
-                            <div style="font-weight: 600; margin-bottom: 8px;">${v.meaning}</div>
-                            <div style="font-size: 0.85rem; font-style: italic; direction: ltr; background: rgba(0,0,0,0.03); padding: 6px; border-radius: 6px;">${v.example}</div>
+                            <div style="font-size: 0.9rem; color: var(--text-muted); direction: ltr; margin-bottom: 6px;">${v.phonetic}</div>
+                            <div style="font-weight: 800; margin-bottom: 10px; font-size: 1.05rem;">${v.meaning}</div>
+                            <div style="font-size: 0.85rem; font-style: italic; direction: ltr; background: rgba(0,0,0,0.04); padding: 8px; border-radius: 8px; font-weight: 600;">${v.example}</div>
                         </div>
                     `).join('')}
                 </div>
 
-                <div style="margin-top: 20px; padding: 16px; background: rgba(99, 102, 241, 0.05); border-radius: var(--radius-md);">
-                    <h4 style="margin-bottom: 8px; color: var(--primary);">متن و ترجمه آموزشی:</h4>
-                    <p style="direction: ltr; font-size: 0.95rem; margin-bottom: 6px; font-weight: 500;">${lesson.readingText}</p>
-                    <p style="font-size: 0.95rem; color: var(--text-muted);">${lesson.readingTranslation}</p>
+                <div style="margin-top: 24px; padding: 20px; background: rgba(99, 102, 241, 0.06); border-radius: var(--radius-md); border: 1px solid var(--card-border);">
+                    <h4 style="margin-bottom: 8px; color: var(--primary); font-weight: 800;">متن و ترجمه آموزشی:</h4>
+                    <p style="direction: ltr; font-size: 1rem; margin-bottom: 8px; font-weight: 600;">${lesson.readingText}</p>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); font-weight: 500;">${lesson.readingTranslation}</p>
                 </div>
             </div>
         `).join('');
     }
 
     // --------------------------------------------------------------------------
-    // 4. 3D Flashcards Leitner & Audio Waveform Equalizer
+    // 5. 3D Flashcards Leitner & Audio Waveform Engine
     // --------------------------------------------------------------------------
     function renderFlashcardModule() {
         const lessonSelect = document.getElementById('flashcard-lesson-select');
@@ -242,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const vocabList = getCurrentVocabList();
             currentFlashcardIndex = (currentFlashcardIndex + 1) % vocabList.length;
             updateFlashcard();
-            addXP(2); // Earn XP for practice
+            addXP(2);
         });
 
         document.getElementById('prev-card-btn').addEventListener('click', () => {
@@ -305,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------------------------
-    // 5. Irregular Verbs & Exam Tips
+    // 6. Irregular Verbs & Exam Tips
     // --------------------------------------------------------------------------
     function renderIrregularVerbs() {
         const tbody = document.getElementById('irregular-verbs-tbody');
@@ -313,25 +350,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tbody.innerHTML = appData.irregularVerbs.map(v => `
             <tr>
-                <td style="direction: ltr; font-weight: 700; color: var(--primary);">${v.base}</td>
-                <td style="direction: ltr;">${v.past}</td>
-                <td style="direction: ltr;">${v["p.p"]}</td>
-                <td>${v.meaning}</td>
+                <td style="direction: ltr; font-weight: 800; color: var(--primary);">${v.base}</td>
+                <td style="direction: ltr; font-weight: 600;">${v.past}</td>
+                <td style="direction: ltr; font-weight: 600;">${v["p.p"]}</td>
+                <td style="font-weight: 600;">${v.meaning}</td>
             </tr>
         `).join('');
 
         const tipsContainer = document.getElementById('exam-tips-container');
         if (tipsContainer && appData.examTips) {
             tipsContainer.innerHTML = appData.examTips.map(tip => `
-                <div class="glass-panel" style="padding: 14px; margin-bottom: 10px; border-right: 4px solid var(--accent);">
-                    <p style="font-size: 0.95rem; font-weight: 500;">${tip}</p>
+                <div class="glass-panel" style="padding: 16px; margin-bottom: 12px; border-right: 4px solid var(--accent);">
+                    <p style="font-size: 0.95rem; font-weight: 700;">${tip}</p>
                 </div>
             `).join('');
         }
     }
 
     // --------------------------------------------------------------------------
-    // 6. Comprehensive Quiz & Confetti FX
+    // 7. Comprehensive Quiz & Confetti Fireworks FX
     // --------------------------------------------------------------------------
     function renderQuizModule() {
         const container = document.getElementById('quiz-questions-container');
@@ -339,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         container.innerHTML = appData.comprehensiveQuiz.map((q, qIndex) => `
             <div class="glass-panel quiz-card" id="question-box-${qIndex}">
-                <div class="quiz-question" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 16px;">سوال ${qIndex + 1}: ${q.question}</div>
+                <div style="font-size: 1.1rem; font-weight: 800; margin-bottom: 16px; color: var(--text-main);">سوال ${qIndex + 1}: ${q.question}</div>
                 <div class="quiz-options">
                     ${q.options.map((opt, oIndex) => `
                         <button class="option-btn" onclick="selectQuizOption(${qIndex}, ${oIndex}, this)">
@@ -383,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const explDiv = document.createElement('div');
-            explDiv.style.cssText = 'margin-top: 12px; font-size: 0.9rem; color: var(--text-muted); padding: 8px; background: rgba(0,0,0,0.02); border-radius: 6px;';
+            explDiv.style.cssText = 'margin-top: 14px; font-size: 0.95rem; color: var(--text-muted); padding: 10px; background: rgba(0,0,0,0.04); border-radius: 8px; font-weight: 600;';
             explDiv.innerHTML = `<strong>پاسخ تشریحی:</strong> ${q.explanation}`;
             qBox.appendChild(explDiv);
         });
@@ -395,17 +432,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const resultContainer = document.getElementById('quiz-result-container');
         const percentage = Math.round((score / quizData.length) * 100);
         resultContainer.innerHTML = `
-            <div class="glass-panel" style="padding: 24px; text-align: center; background: var(--primary-light); margin-top: 24px;">
-                <h3 style="color: var(--primary); font-size: 1.6rem; margin-bottom: 8px;">نتیجه آزمون جامع و پاداش</h3>
-                <p style="font-size: 1.15rem; font-weight: 700;">نمره شما: ${score} از ${quizData.length} (درصد: ${percentage}%)</p>
-                <p style="color: var(--accent); font-weight: 800; margin-top: 6px;">+${earnedXP} XP امتیاز گیمیفیکیشن کسب شد! 🎉</p>
+            <div class="glass-panel" style="padding: 28px; text-align: center; background: rgba(99, 102, 241, 0.15); margin-top: 28px; border: 1px solid var(--primary);">
+                <h3 style="color: var(--primary); font-size: 1.7rem; margin-bottom: 8px; font-weight: 900;">نتیجه آزمون جامع و پاداش</h3>
+                <p style="font-size: 1.2rem; font-weight: 800;">نمره شما: ${score} از ${quizData.length} (درصد: ${percentage}%)</p>
+                <p style="color: var(--accent); font-weight: 900; margin-top: 8px; font-size: 1.1rem;">+${earnedXP} XP امتیاز گیمیفیکیشن کسب شد! 🎉</p>
             </div>
         `;
         resultContainer.scrollIntoView({ behavior: 'smooth' });
     }
 
     function triggerConfetti() {
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 70; i++) {
             const conf = document.createElement('div');
             conf.className = 'confetti';
             conf.style.left = Math.random() * window.innerWidth + 'px';
@@ -417,45 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------------------------
-    // 7. Analytics Dashboard 3D
-    // --------------------------------------------------------------------------
-    function renderAnalyticsDashboard() {
-        const totalVocab = appData.lessons.reduce((acc, l) => acc + l.vocabulary.length, 0);
-        const totalVerbs = appData.irregularVerbs.length;
-        const totalQuiz = appData.comprehensiveQuiz.length;
-
-        const analyticsContainer = document.getElementById('analytics-dashboard-area');
-        if (!analyticsContainer) return;
-
-        analyticsContainer.innerHTML = `
-            <div class="stats-grid">
-                <div class="glass-panel stat-card">
-                    <div class="stat-icon" style="background: var(--primary);"><i class="ri-book-2-line"></i></div>
-                    <div>
-                        <div style="font-size: 1.5rem; font-weight: 800;">${totalVocab}</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">واژه و اصطلاح تخصصی</div>
-                    </div>
-                </div>
-                <div class="glass-panel stat-card">
-                    <div class="stat-icon" style="background: var(--secondary);"><i class="ri-award-line"></i></div>
-                    <div>
-                        <div style="font-size: 1.5rem; font-weight: 800;">${totalVerbs}</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">فعل بی‌قاعده مرجع</div>
-                    </div>
-                </div>
-                <div class="glass-panel stat-card">
-                    <div class="stat-icon" style="background: var(--accent);"><i class="ri-question-answer-line"></i></div>
-                    <div>
-                        <div style="font-size: 1.5rem; font-weight: 800;">${totalQuiz}</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">سوال آزمون استاندارد</div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-
-    // --------------------------------------------------------------------------
-    // 8. Admin Dashboard
+    // 8. Admin Dashboard & Persistent Storage
     // --------------------------------------------------------------------------
     function renderAdminPanel() {
         const lessonSelect = document.getElementById('admin-lesson-select');
@@ -477,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (lesson) {
                 lesson.vocabulary.push({ word, phonetic, pos, meaning, example });
                 localStorage.setItem('prospect3_data', JSON.stringify(appData));
-                alert('واژه جدید با موفقیت اضافه شد!');
+                alert('واژه جدید با موفقیت اضافه و در localStorage ذخیره شد!');
                 form.reset();
                 initApp();
             }
@@ -491,5 +490,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Run Application Loader
     loadData();
 });
